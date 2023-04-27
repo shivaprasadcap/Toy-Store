@@ -20,3 +20,4 @@ private string GenerateJwtToken(User existingUser)
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
         }
+https://github.com/RutujaVetal123/Shopping-Cart-Frontend
