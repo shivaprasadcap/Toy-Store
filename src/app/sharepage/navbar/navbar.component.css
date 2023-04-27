@@ -1,0 +1,18 @@
+.navbar{
+    background-image: url('https://w0.peakpx.com/wallpaper/133/503/HD-wallpaper-multicolored-smeared-lines-violet-abstract-backgrounds-material-design-abstract-lines-creative-geometric-shapes-arrows-colorful-material-design-strips-geometry-violet-backgrounds.jpg');
+    font-weight: bold !important;
+    font-size: 20px !important;
+}
+
+.nav-item{
+    margin-right: 10%;
+    float: right;
+    padding: 5px;
+}
+
+.nav-link{
+    font-family: 'Roboto';
+    text-transform: uppercase;
+    font-weight: 1000;
+    color: aliceblue;
+}
