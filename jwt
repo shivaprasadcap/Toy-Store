@@ -1,0 +1,22 @@
+private string GenerateJwtToken(User existingUser)
+        {
+            var secret = config["Secret"];
+            var expiryDays = config.GetValue<int>("ExpiryDays");
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Issuer = config["Issuer"],
+                Audience = config["Audience"],
+                Subject = new ClaimsIdentity(new[]
+                {
+                    new Claim (JwtRegisteredClaimNames.Jti, existingUser.Id.ToString()),
+                    new Claim("role", existingUser.Role.ToString())
+                }),
+                Expires = DateTime.UtcNow.AddDays(expiryDays),
+                SigningCredentials = new SigningCredentials(
+                    new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secret)),
+                    SecurityAlgorithms.HmacSha256Signature)
+            };
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            return tokenHandler.WriteToken(token);
+        }
